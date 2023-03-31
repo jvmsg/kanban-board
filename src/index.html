@@ -5,9 +5,35 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="./css/styles.css" />
+        <link rel="stylesheet" href="./css/button.css" />
         <title>Kanban Board</title>
     </head>
     <body>
-
+        <div class="board">
+            <div class="column" id="toDo">
+                <div class="column-title">To Do</div>
+                <div class="column-items"></div>
+                <button class="add-item" type="button">+</button>
+            </div>
+            <div class="column" id="doing">
+                <div class="column-title">Doing</div>
+                <div class="column-items">
+                    <div class="item">
+                        <div class="item-title">Título</div>
+                        <div class="item-content">
+                            Conteúdo comprido para tentar quebrar a linha e não foi o suficiente vou escrever um pouco mais 
+                        </div>
+                    </div>
+                </div>
+                <button class="add-item" type="button">+</button>
+            </div>
+            <div class="column" id="Done">
+                <div class="column-title">Done</div>
+                <div class="column-items"></div>
+                <button class="add-item" type="button">+</button>
+            </div>
+            
+        </div>
+        <script src="js/main.js" type="module"></script>
     </body>
 </html>

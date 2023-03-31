@@ -1,0 +1,9 @@
+.add-item {
+    border:none;
+    border-radius: 5px;
+    color: darkslategray;
+    cursor: pointer;
+    font-size: large;
+    padding: 0;
+    width: 100%;
+}
