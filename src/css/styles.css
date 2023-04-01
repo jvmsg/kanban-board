@@ -50,18 +50,30 @@ body{
     width: 100%-32px;
 }
 .item-title {
+    background: rgba(0,0,0,0.05);
+    border-radius: 5px;
     font-size: 20px;
-    margin-bottom: 3px;
+    margin-block: 5px;
+    margin-inline: 10px;
+    min-width: 10%;
+    padding: 5px;
+    width: fit-content;
 }
 .item-content {
+    background: rgba(0,0,0,0.05);
+    border-radius: 5px;
     font-size: 15px;
+    padding: 5px;
+    margin-inline: 10px;
+    margin-bottom: 5px;
 }
 .dropzone{
+    border-radius: 5px;
     height: 10px;
     background-color: whitesmoke;
     transition: background 0.15s, height 0.15s;
 }
 .dropzone--active{
-    height: 20px;
+    height: 50px;
     background: rgba(0,0,0,0.25);
 }
