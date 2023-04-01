@@ -13,7 +13,8 @@ export default class Column {
     this.elements.title.textContent = title;
 
     this.elements.addItem.addEventListener("click", () => {
-
+        const newItem = fetchData.insertItem(id, {title: "", body: ""});
+        this.renderItem(newItem);
     });
     
     

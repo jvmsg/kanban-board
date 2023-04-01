@@ -1,3 +1,5 @@
+import fetchData from "../data/fetch-data.js";
+
 export default class Item {
   constructor(id, content) {
     this.elements = {};
@@ -8,6 +10,18 @@ export default class Item {
     this.elements.root.dataset.id = id;
     this.elements.title.textContent = content.title;
     this.elements.content.textContent = content.body;
+
+    const onBlur = () => {
+        const newTitle = this.elements.title.textContent.trim();
+        const newContent = this.elements.content.textContent.trim();
+
+        console.log(newTitle, newContent);
+
+        fetchData.updateItem(this.elements.root.dataset.id, {content:{title: newTitle, body: newContent}});
+    };
+
+    this.elements.title.addEventListener("blur", onBlur);
+    this.elements.content.addEventListener("blur", onBlur);
   }
 
   static createRoot() {
@@ -16,8 +30,8 @@ export default class Item {
 
     return range.createContextualFragment(`
         <div class="item" draggable="true">
-            <div class="item-title"></div>
-            <div class="item-content"></div>
+            <div class="item-title" contenteditable></div>
+            <div class="item-content" contenteditable></div>
         </div>
     `).children[0];
   }
