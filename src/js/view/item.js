@@ -1,7 +1,10 @@
 import fetchData from "../data/fetch-data.js";
+import DropZone from "./dropzone.js";
 
 export default class Item {
   constructor(id, content) {
+    const bottomDropzone = DropZone.createDropZone();
+
     this.elements = {};
     this.elements.root = Item.createRoot();
     this.elements.title = this.elements.root.querySelector(".item-title");
@@ -11,14 +14,13 @@ export default class Item {
     this.elements.root.dataset.id = id;
     this.elements.title.textContent = content.title;
     this.elements.content.textContent = content.body;
+    this.elements.root.appendChild(bottomDropzone);
 
     const onBlur = () => {
         const newTitle = this.elements.title.textContent.trim();
         const newContent = this.elements.content.textContent.trim();
 
-        console.log(newTitle, newContent);
-
-        fetchData.updateItem(this.elements.root.dataset.id, {content:{title: newTitle, body: newContent}});
+        fetchData.updateItem(+this.elements.root.dataset.id, {content:{title: newTitle, body: newContent}});
     };
 
     this.elements.removeButton.addEventListener("click", () => {
@@ -31,6 +33,16 @@ export default class Item {
 
     this.elements.title.addEventListener("blur", onBlur);
     this.elements.content.addEventListener("blur", onBlur);
+
+    this.elements.root.addEventListener("dragstart", e => {
+        e.dataTransfer.setData("text/plain", id);
+    });
+    this.elements.title.addEventListener("drop", e => {
+        e.preventDefault();
+    })
+    this.elements.content.addEventListener("drop", e => {
+        e.preventDefault();
+    })
   }
 
   static createRoot() {

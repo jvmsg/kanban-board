@@ -3,7 +3,17 @@
     border-radius: 5px;
     color: darkslategray;
     cursor: pointer;
-    font-size: large;
+    font-size: xx-large;
+    padding: 0;
+    width: 100%;
+}
+.item-remove {
+    border:none;
+    border-radius: 5px;
+    background-color: white;
+    color: darkslategray;
+    cursor: pointer;
+    font-size: medium;
     padding: 0;
     width: 100%;
 }

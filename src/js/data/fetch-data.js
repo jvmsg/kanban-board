@@ -32,7 +32,7 @@ export default class fetchData {
     const data = read();
     const [item, currentColumn] = (() => {
       for (const column of data) {
-        const item = column.items.find((item) => item.id === +itemId);
+        const item = column.items.find((item) => item.id === itemId);
         if (item) {
           return [item, column];
         }
@@ -59,7 +59,6 @@ export default class fetchData {
 
       targetColumn.items.splice(newItem.position, 0, item);
     }
-    console.log(data);
     save(data);
   }
 

@@ -1,8 +1,11 @@
 import fetchData from "../data/fetch-data.js";
+import DropZone from "./dropzone.js";
 import Item from "./item.js";
 
 export default class Column {
   constructor(id, title) {
+    const topDropZone = DropZone.createDropZone();
+
     this.elements = {};
     this.elements.root = Column.createRoot();
     this.elements.title = this.elements.root.querySelector(".column-title");
@@ -11,6 +14,7 @@ export default class Column {
 
     this.elements.root.dataset.id = id;
     this.elements.title.textContent = title;
+    this.elements.items.appendChild(topDropZone);
 
     this.elements.addItem.addEventListener("click", () => {
         const newItem = fetchData.insertItem(id, {title: "", body: ""});
