@@ -1,3 +1,6 @@
 import fetchData from "./data/fetch-data.js";
+import Board from "./view/boad.js";
 
-fetchData.deleteItem(20537);
+new Board(
+    document.querySelector(".board")
+);
